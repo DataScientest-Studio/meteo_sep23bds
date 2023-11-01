@@ -1,0 +1,417 @@
+<html>
+<head>
+<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>Google Maps - gmplot</title>
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?libraries=visualization"></script>
+<script type="text/javascript">
+    function initialize() {
+        var map = new google.maps.Map(document.getElementById("map_canvas"), {
+            zoom: 5,
+            center: new google.maps.LatLng(-23.698388, 133.881289)
+        });
+
+        var marker_icon_6495ED = {
+            url: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABUAAAAiCAYAAACwaJKDAAAABmJLR0QA/wD/AP+gvaeTAAADFUlEQVRIia2VW0gUYRiGn91lrGwj0qCsbS9qpZN5UaFlUQmF1IUURN0FkVFeSEQgdBcZBN10hEqipLoxjKjoXG5ZFh6y8tBKanmazLRd0t1Wx935u3AG121tx9X35me+/32f4eP//hkT/9dyYD0wHzADKiADb4CGKNl/tBmoBIQ1wSbsKVnCkbZL2FOyhDXBJgCh7W+OFDZFeD6JyZS/aOUOU+qWPBJtK8A02varo5baZ+dpqbkjEOIUcFR70T9QE3Bammo9lLm3EHtKVtR22use4yw6wNCA9yxwWAdbQjyHLNKUY1vzbjN/8caoQICZcxwkJWfQUl2yRqhBD1ARCp0H3E3bfkxauGqHIaAu6ywbUlw8na7SDUAR0G/W9nKtCQvil2/aPy6grmUbc5iRaI8HcmF4TACyk9N3Y7ZIMUHNFglH+m6AbB1qAZYkJa+LCagryZEBsASwmAEJiJs+yzYhqJaPAyTzSFmMYTeqkbwZUADF6+6YEFLLK4Ci32dXV1P5hKBa3gWoevv3miqKUQNKTEA1OERTRTHAPRgZqYs+j+ytd16KCdrgvIzPI3uBizByo7xAf1fzu21zHWuZkWg3DPzR/JayG3kINXgEKA2FAlQKNZjQ+vF+um1pJvEz50YF9nbU8ujCTgLKn3PAcb1uCfM9UQNKcnv90xWLVu9EmmodEzjoc/PgTDYD3t5bQE7onjnMK4CcP79/1JXdzAMx9uyWF+fj88hfgH2EDXk4FMAP7On8/CLQXF0SESg3vuLr+zsA+xk+j1GKBAX4CFyqultAMDAY1oug+v4JgBKgLFJ4LChAgc8j+5srb40qdjWV09NaIwg5mPFAfwLXG15eGVV0vb4Gw6NTFwsUoNAt1+OWh//Gir+PtrpHAFf/F4oGrQG+tH16CECnq5Tg0KAf7TrGCgV4IDe+BEB2OQGcRDjx8UKdPW0fUAOK/iV6Hi1gBFoVDAzS/a2Kvt5WgHcGMobUk5J5UAABYNpkQatmL0gVQIsRs5H2AXq11tsmE+pW/H0A/ZMJ7dbW75MJ7dLWViPmv887IG8sMF4/AAAAAElFTkSuQmCC",
+            labelOrigin: new google.maps.Point(10, 11)
+        };
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-36.080477, 146.916280),
+            title: "Albury",
+            label: "Albury",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-33.881667, 150.744163),
+            title: "BadgerysCreek",
+            label: "BadgerysCreek",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-31.498333, 145.834444),
+            title: "Cobar",
+            label: "Cobar",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-30.296241, 153.113529),
+            title: "CoffsHarbour",
+            label: "CoffsHarbour",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-29.461720, 149.840715),
+            title: "Moree",
+            label: "Moree",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-32.919295, 151.779535),
+            title: "Newcastle",
+            label: "Newcastle",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-33.281667, 151.567778),
+            title: "NorahHead",
+            label: "NorahHead",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-29.028958, 167.958729),
+            title: "NorfolkIsland",
+            label: "NorfolkIsland",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-33.751195, 150.694171),
+            title: "Penrith",
+            label: "Penrith",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-33.600972, 150.749640),
+            title: "Richmond",
+            label: "Richmond",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-33.869844, 151.208285),
+            title: "Sydney",
+            label: "Sydney",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-33.946111, 151.177222),
+            title: "SydneyAirport",
+            label: "SydneyAirport",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-35.115263, 147.367797),
+            title: "WaggaWagga",
+            label: "WaggaWagga",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-32.815000, 151.842778),
+            title: "Williamtown",
+            label: "Williamtown",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-34.427808, 150.893054),
+            title: "Wollongong",
+            label: "Wollongong",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-35.297591, 149.101268),
+            title: "Canberra",
+            label: "Canberra",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-35.420977, 149.092134),
+            title: "Tuggeranong",
+            label: "Tuggeranong",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-35.533333, 148.783333),
+            title: "MountGinini",
+            label: "MountGinini",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-37.562303, 143.860565),
+            title: "Ballarat",
+            label: "Ballarat",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-36.758877, 144.282593),
+            title: "Bendigo",
+            label: "Bendigo",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-38.105036, 147.064790),
+            title: "Sale",
+            label: "Sale",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-37.673333, 144.843333),
+            title: "MelbourneAirport",
+            label: "MelbourneAirport",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-37.814218, 144.963161),
+            title: "Melbourne",
+            label: "Melbourne",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-34.184726, 142.162497),
+            title: "Mildura",
+            label: "Mildura",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-36.333333, 141.650000),
+            title: "Nhil",
+            label: "Nhil",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-38.345623, 141.604230),
+            title: "Portland",
+            label: "Portland",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-37.709785, 145.083271),
+            title: "Watsonia",
+            label: "Watsonia",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-37.922544, 141.276655),
+            title: "Dartmoor",
+            label: "Dartmoor",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-27.468968, 153.023499),
+            title: "Brisbane",
+            label: "Brisbane",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-16.920666, 145.772185),
+            title: "Cairns",
+            label: "Cairns",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-28.002373, 153.414599),
+            title: "GoldCoast",
+            label: "GoldCoast",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-19.256939, 146.823954),
+            title: "Townsville",
+            label: "Townsville",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-34.928181, 138.599931),
+            title: "Adelaide",
+            label: "Adelaide",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(37.830139, 140.784263),
+            title: "MountGambier",
+            label: "MountGambier",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-34.469335, 138.993901),
+            title: "Nuriootpa",
+            label: "Nuriootpa",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-31.199914, 136.825353),
+            title: "Woomera",
+            label: "Woomera",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-35.024782, 117.883608),
+            title: "Albany",
+            label: "Albany",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-34.026335, 115.100477),
+            title: "Witchcliffe",
+            label: "Witchcliffe",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-31.667778, 116.015000),
+            title: "PearceRAAF",
+            label: "PearceRAAF",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-31.940000, 115.965000),
+            title: "PerthAirport",
+            label: "PerthAirport",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-31.955896, 115.860580),
+            title: "Perth",
+            label: "Perth",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-32.981535, 121.643942),
+            title: "SalmonGums",
+            label: "SalmonGums",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-34.977680, 116.731006),
+            title: "Walpole",
+            label: "Walpole",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-42.882509, 147.328123),
+            title: "Hobart",
+            label: "Hobart",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-41.434081, 147.137350),
+            title: "Launceston",
+            label: "Launceston",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-23.698388, 133.881289),
+            title: "AliceSprings",
+            label: "AliceSprings",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-12.460440, 130.841047),
+            title: "Darwin",
+            label: "Darwin",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-14.464616, 132.263599),
+            title: "Katherine",
+            label: "Katherine",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+        new google.maps.Marker({
+            position: new google.maps.LatLng(-25.345000, 131.036111),
+            title: "Uluru",
+            label: "Uluru",
+            icon: marker_icon_6495ED,
+            map: map
+        });
+
+    }
+</script>
+</head>
+<body style="margin:0px; padding:0px;" onload="initialize()">
+    <div id="map_canvas" style="width: 100%; height: 100%;" />
+</body>
+</html>
