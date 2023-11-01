@@ -1,0 +1,14 @@
+Alex:
+	- all.csv
+	- Cloud9am_Cloud3pm.csv
+	- Evaporation_Sunshine_WindGustDir_WindGustSpeed_Pressure9am_Pressure3pm_WindGustDirNum.csv
+
+Fred:
+	- Evaporation_Sunshine_Pressure9am_Pressure3pm_Cloud9am_Cloud3pm.csv
+	- Sunshine.csv
+	- WindGustDir_WindGustSpeed_WindGustDirNum.csv
+
+Omar:
+	- Evaporation.csv
+	- Evaporation_Sunshine.csv
+	- Evaporation_Sunshine_Cloud9am_Cloud3pm.csv
