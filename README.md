@@ -43,6 +43,24 @@ You will need to install the dependencies (in a dedicated environment) :
 ```
 pip install -r requirements.txt
 ```
+**Présentation**
+Ce repo contient le code pour notre projet **Météo en Australie**, réalisé lors de notre [parcours chez DataScientest](https://datascientest.com/en/data-scientist-course) chez [DataScientest](https://datascientest.com/).
+
+Nous sommes les **Weather Boys**, et notre objectif est d'analyser le relevé quotidien de 49 stations météorologiques en Australie pendant une période d'environ 8 ans (de 2009 à 2017) afin de développer une solution de machine learning visant à prédire, à partir d'un relevé, s'il pleuvra le lendemain ou pas. 
+
+Ce projet a été réalisé par:
+
+- Omar CHOA
+- Frédéric VINCENT
+- Alexandre WINGER ([GitHub](https://github.com/alexandrewinger))
+
+Vous pouvez explorer et exécuter les [notebooks](./notebooks).
+
+Vous aurez besoin d'installer les dépendances suivantes dans un environnement dédié:
+
+```
+pip install -r requirements.txt
+```
 
 ## Streamlit App
 
