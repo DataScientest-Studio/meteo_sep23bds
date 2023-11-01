@@ -1,0 +1,16 @@
+station_gps_region.xlsx est un fichier excel comportant:
+
+	- une ligne par station
+	- colonnes:
+		* Latitude : la latitude de la station
+		* Longitude : la longitude de la station
+		* CodeRegion : le code officiel de la région d'appartenance de la station, voir ici : https://fr.wikipedia.org/wiki/Liste_des_r%C3%A9gions_de_l%27Australie
+		* NonMes : la liste des grandeurs non mesurées pour cette station
+
+Latitude, longitude et CodeRegion ont été trouvées sur le site https://api-ninjas.com/api/geocoding en rentrant le nom des stations à la main et en recopiant les résultats.
+D'autres coordonées ont été trouvées sur le wiki des noms des villes.
+
+Remarque : il faut parfois séparer le nom de la station en deux pour trouver les données. Le nom de la station est en CamelCase.
+	Exemple: SalmonGums se sépare en Salmon Gums.
+
+Ce fichier est utilisé pour ajouter ces données au tableau d'origine, dans step 1.
