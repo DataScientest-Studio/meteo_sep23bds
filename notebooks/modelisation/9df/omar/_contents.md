@@ -22,12 +22,13 @@ exemple : `3.1.2-oc-clf-time-E-S-C9-C3-KNN-DTW.ipynb`
     - `0` : TTS
     - `1` : TSS
     - `2` : sort + TSS
-    - `3` : sort + TSS + scale
+    - `3` : sort + TSS + StandardScaler
     - `4` : sort + TSS + tslearn
     - `5` : sort + TSS + SMOTE
-    - `6` : sort + TSS + scale + SMOTE
-    - `7` : sort + TSS + SMOTE + tslearn
-    - `8` : sort + TSS + scale + SMOTE + tslearn
+    - `6` : sort + TSS + StandardScaler + RandomUnderSampler
+    - `7` : sort + TSS + StandardScaler + RandomUnderSampler + tslearn
+    - `8` : sort + TSS + MinMaxScaler
+    - `9` : sort + TSS + MinMaxScaler + tslearn
 - `oc` : auteur
 - `clf-time` : approche
 - `E-S-C9-C3` : dataset
