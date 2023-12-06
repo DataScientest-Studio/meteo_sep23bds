@@ -24,14 +24,7 @@ liste_stations = list(df['Location'].unique())
 
 st.title("Projet Météo en Australie")
 st.sidebar.title("Sommaire")
-pages = ["Exploration",                 # done
-         "DataVizualization",           # TODO omar x2 ou 3: ajout stats par station graphe doré
-         "Preprocessing",               # Omar
-         "Premières modélisations",     # Alex
-         "Times Series",                # Omar
-         "Résultats et choix du modèle",# Alex et/ou Omar
-         "Démonstration et conclusion"] # Alex
-
+pages = ["Exploration", "DataVizualization", "Preprocessing", "Modélisation"]
 page = st.sidebar.radio("Aller vers", pages)
 
 ########## Première page: Exploration #########################
@@ -215,15 +208,24 @@ if page == pages[1]:
                   
 ########## Troisième page: Preprocessing ##################       
 if page == pages[2]:
-
-########## Quatrième page: Premières modélisations ##################       
+    st.subheader("2.b Variables catégorielles")
+########## Quatrième page : Modélisation ##################       
 if page == pages[3]:
+    st.header("""1. Ré-équilibrage des classes""")
+    st.markdown(""" Notre variable cible est très déséquilibrée: il ne pleut pas souvent en Australie, environ 22 % du temps seulement""")
+    data = pd.read_csv("../../data/processed/model_weatherAUS.csv")
+    fig5 = plt.figure(figsize = (8, 8))
+    sns.countplot(x = df['RainTomorrow'])
+    st.pyplot(fig5)
+    st.markdown(""" Nous choississons donc de procéder à un ré-échantillonnage des données. Reste à savoir quelle méthode est la plus adaptée à notre problème: 
+                le sur-échantillonage ou le sous échantillonnage.  
+                Nous testerons deux algorithmes: SMOTE et ClusterCentroids.""")
+    
+    st.header("""2. Modèles de classification simples""")
+    st.markdown(""" On choisit d'entrainer 4 modèles :  
+                    * Régression Logistique (logreg),   
+                    * Arbre de décision (Decision Tree, dt),   
+                    * Forêts aléatoires (RandomForest, rdf),   
+                    * K plus proches voisins (K Nearest Neighbors, knn)""")
 
-########## Cinquième page: Times Series ##################       
-if page == pages[4]:
 
-########## Sixième page: Résultats et choix du modèle ##################       
-if page == pages[5]:
-
-########## Septième page: Démonstration et conclusion ##################       
-if page == pages[6]:
