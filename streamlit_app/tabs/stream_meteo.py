@@ -27,7 +27,7 @@ st.sidebar.title("Sommaire")
 pages = ["Exploration",                 # done
          "DataVizualization",           # TODO omar x2 ou 3: ajout stats par station graphe doré
          "Preprocessing",               # Omar
-         "Premières modélisations",     # Alex
+         "Premières modélisations",     # done
          "Times Series",                # Omar
          "Résultats et choix du modèle",# Alex et/ou Omar
          "Démonstration et conclusion"] # Alex
