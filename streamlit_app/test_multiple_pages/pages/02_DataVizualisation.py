@@ -228,9 +228,23 @@ box_plot_var = ["WindGustSpeed", "WindSpeed9am", "WindSpeed3pm"]
 box_plot_var_choix = st.selectbox("Quelle variable visualiser ?", box_plot_var)
 st.image("../../reports/figures/box_plot_{}.png".format(box_plot_var_choix))
 
+## ==== VARIABLES CATÉGORIELLES ====
 
 st.subheader("2.b Variables catégorielles")
-# TODO : insérer la rose des vents, avec un choix de station par menu déroulant?
-# En cours ; fait pour 4 premières stations
+
+st.markdown("Nous examinons ensuite les variables catégorielles.")
+
+st.markdown(
+    "Les illustrations ci-dessous présentent **les plus fortes rafales de vent (`WindGustDir`) à chaque station météorologique** sous forme de rose des vents."
+)
+
 liste_stations_choix = st.selectbox("Quelle station visualiser ?", liste_stations)
 st.image("../../reports/figures/rose_vents_{}.png".format(liste_stations_choix))
+
+st.markdown(
+    "Enfin, nous concluons avec les visualisations de la pseudo-variable cible, `RainToday`, et de la variable cible, `RainTomorrow`, dont la valeur est celle de `RainToday` le jour précédent."
+)
+
+cible_var = ["RainToday", "RainTomorrow"]
+cible_var_choix = st.selectbox("Quelle variable visualiser ?", cible_var)
+st.image("../../reports/figures/distrib_{}.png".format(cible_var_choix))
