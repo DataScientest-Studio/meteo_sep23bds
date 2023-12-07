@@ -24,13 +24,13 @@ liste_stations = list(df['Location'].unique())
 
 st.title("Projet Météo en Australie")
 st.sidebar.title("Sommaire")
-pages = ["Exploration",                 # done
-         "DataVizualization",           # TODO omar x2 ou 3: ajout stats par station graphe doré
+pages = ["Exploration",                 # Done. Alex
+         "DataVizualization",           # Done; Alex et Omar. TODO omar x2 ou 3: ajout stats par station graphe doré
          "Preprocessing",               # Omar
-         "Premières modélisations",     # done
+         "Premières modélisations",     # Done. Alex
          "Times Series",                # Omar
-         "Résultats et choix du modèle",# Alex et/ou Omar
-         "Démonstration et conclusion"] # Alex
+         "Résultats et choix du modèle",# Fonctionnel. Alex et/ou Omar
+         "Démonstration et conclusion"] # Fonctionnel. Alex
 
 page = st.sidebar.radio("Aller vers", pages)
 
