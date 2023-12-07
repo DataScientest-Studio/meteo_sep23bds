@@ -129,14 +129,10 @@ st.markdown(
             """
 )
 
-# Elargissement:
+# Élargissement et visualisation de la distribution spatio-temporelle des données pour des variables choisies (graphiques en « codes barre »)
 st.markdown(
-    """Il existe aussi une répartition des NaN plutôt aléatoire, correspondant sans doute à des interruptions momentannées des appareils de mesures.
-            Nous les gérerons en remplacant ces valauers par la valeur moyenne (ou la modalité la plus fréquente)
-            calculée par station au sein de chaque tableau.
-            """
+    "Il existe aussi une répartition des NaN plutôt aléatoire, correspondant sans doute à des interruptions momentanées des appareils de mesures. Nous les gérerons en remplacant ces valeurs par la valeur moyenne ou la modalité la plus fréquente calculée par station au sein de chaque tableau."
 )
-
 code_barre_var = ["Evaporation", "Sunshine", "Cloud9am", "Cloud3pm"]
 code_barre_var_choix = st.selectbox("Quelle variable visualiser ?", code_barre_var)
 st.image("../../reports/figures/code_barre_{}.png".format(code_barre_var_choix))
@@ -220,5 +216,21 @@ st.markdown(
     """ **Conclusion**: Tout est en ordre, il n'y a pas de mesure particulière à prendre concernant la distribution des variables numériques.
 """
 )
+
+st.write("\n")
+
+# Visualisation de la distribution spatiale de variables choisies (graphiques en boîtes à moustaches)
+st.markdown(
+    "Les variables sous étude étant des **paramètres météorologiques**, nous pourrions supposer qu’elles soient également **fonction du lieu** d’enregistrement des données ; une décomposition sur cet axe pourrait donc se révéler instructive."
+)
+st.markdown("Voici quelques illustrations pour les variables numériques liées au vent.")
+box_plot_var = ["WindGustSpeed", "WindSpeed9am", "WindSpeed3pm"]
+box_plot_var_choix = st.selectbox("Quelle variable visualiser ?", box_plot_var)
+st.image("../../reports/figures/box_plot_{}.png".format(box_plot_var_choix))
+
+
 st.subheader("2.b Variables catégorielles")
 # TODO : insérer la rose des vents, avec un choix de station par menu déroulant?
+# En cours ; fait pour 4 premières stations
+liste_stations_choix = st.selectbox("Quelle station visualiser ?", liste_stations)
+st.image("../../reports/figures/rose_vents_{}.png".format(liste_stations_choix))
