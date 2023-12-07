@@ -26,7 +26,7 @@ st.title("Projet Météo en Australie")
 st.sidebar.title("Sommaire")
 pages = ["Exploration",                 # Done. Alex
          "DataVizualization",           # Done; Alex et Omar
-         "Preprocessing",               # Omar
+         "Preprocessing",               # Done. Omar
          "Premières modélisations",     # Done. Alex
          "Times Series",                # Omar
          "Résultats et choix du modèle",# Fonctionnel. Alex et/ou Omar
