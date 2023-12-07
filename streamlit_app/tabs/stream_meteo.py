@@ -25,7 +25,7 @@ liste_stations = list(df['Location'].unique())
 st.title("Projet Météo en Australie")
 st.sidebar.title("Sommaire")
 pages = ["Exploration",                 # Done. Alex
-         "DataVizualization",           # Done; Alex et Omar. TODO omar x2 ou 3: ajout stats par station graphe doré
+         "DataVizualization",           # Done; Alex et Omar
          "Preprocessing",               # Omar
          "Premières modélisations",     # Done. Alex
          "Times Series",                # Omar
@@ -35,7 +35,7 @@ pages = ["Exploration",                 # Done. Alex
 page = st.sidebar.radio("Aller vers", pages)
 
 ########## Première page: Exploration #########################
-if page == pages[0]: 
+if page == pages[0]:
     st.write("### Introduction")
 
     # Tentative d'affichage de la page html "stations.html": ne marche pas.
@@ -49,17 +49,17 @@ if page == pages[0]:
     st.markdown("""Notre tableau contient des données provenant de 49 stations différentes:""")
     image = "../../data/external/carte_stations.jpg"
     st.image(image, caption = "Carte des stations")
-   
+
 
     # Présentation du tableau:
-    st.markdown("""Le tableau est constitué de relevés quotidiens de grandeurs physiques 
+    st.markdown("""Le tableau est constitué de relevés quotidiens de grandeurs physiques
                 mesurées par chaque station, sur une durée d'environ 10 ans, entre 2007 et 2017.""")
     st.dataframe(df.head(10))
 
     st.markdown("""Il contient environ 150 000 lignes, et 23 colonnes. Le fichier fait 25.5 MB.""")
     st.write(df.shape)
 
-    st.markdown("""Variable cible: `RainTomorrow`. Il s'agit de prévoir s'il pleuvra le lendemain en se basant sur les mesures de la journée.  
+    st.markdown("""Variable cible: `RainTomorrow`. Il s'agit de prévoir s'il pleuvra le lendemain en se basant sur les mesures de la journée.
                 Cette variable est déséquilibrée: il fait beau 78 \% du temps, et il pleut les 22 \% restants.""")
 
     if st.checkbox("Afficher les infos"):
@@ -73,7 +73,7 @@ if page == pages[0]:
         st.markdown("""Certaines grandeurs sont massivement absentes, comme `Evaporation` ou `Sunshine`.""")
         st.dataframe(df.isna().sum()/df.shape[0]*100)
 
-########## Deuxième page : DataVizualization ##################       
+########## Deuxième page : DataVizualization ##################
 if page == pages[1]:
     ####################################### 1. Premières analyses et stratégie de gestion des NaN ##################################
     st.header("1. Premières analyses et stratégie de gestion des NaN")
@@ -86,34 +86,34 @@ if page == pages[1]:
     plt.setp(labels, rotation=90)
     st.pyplot(fig1)
 
-    st.markdown("""On observe des fluctuations concernant le nombre de mesures par station, 
-                car elles n'ont pas toutes la même date de départ. 
+    st.markdown("""On observe des fluctuations concernant le nombre de mesures par station,
+                car elles n'ont pas toutes la même date de départ.
                 En revanche, toutes les mesures s'arrêtent en même temps:""")
-    
+
     # Analyse des dates
     df_dates = pd.read_csv("../../data/interim/dates.csv")
     st.dataframe(df_dates.head(10))
-    
-    # Strip plots : 
+
+    # Strip plots :
     if st.checkbox("Afficher le graphique strip plot:"):
         st.markdown(""" Observons les strip plots de quelques grandeurs:
                 """)
-    
+
         grandeur = st.selectbox("Quelle grandeur afficher?" , var_num)
-    
+
         fig2 = plt.figure(figsize=(20, 8))
         sns.stripplot(y = df[grandeur], x = df['Location'], hue = df['RainToday'], size = 2, palette=['gold', 'darkturquoise'])
         locs, labels = plt.xticks()
         plt.setp(labels, rotation=90)
         st.pyplot(fig2)
 
-        st.markdown("""On découvre ainsi que certaines stations ne mesurent pas du tout 
-                certaines grandeurs, sans doute car elles n'ont pas le matériel adapté. 
-                Voilà une première piste d'explication du taux important de NaN.  
-                On voudrait savoir quelles sont les grandeurs non mesurées 
+        st.markdown("""On découvre ainsi que certaines stations ne mesurent pas du tout
+                certaines grandeurs, sans doute car elles n'ont pas le matériel adapté.
+                Voilà une première piste d'explication du taux important de NaN.
+                On voudrait savoir quelles sont les grandeurs non mesurées
                 par une station donnée.
                 """)
-    
+
     # Grandeurs non mesurées
     dict = joblib.load("dict_station_non_mes.joblib")
     dict_reverse = joblib.load("dict_reverse.joblib")
@@ -126,7 +126,7 @@ if page == pages[1]:
     st.markdown("""Par chance, les différentes modalités de grandeurs mesurées ne sont pas
                  trop importantes: elles sont au nombre de 9 "seulement".
                 """)
-    
+
     # Heatmap des nan:
     nan_map = pd.read_csv("../../data/interim/nan_map.csv", index_col='Location')
     fig3 = plt.figure(figsize=(20, 7))
@@ -137,7 +137,7 @@ if page == pages[1]:
     plt.ylabel("Location", fontweight = "bold")
     plt.xticks(rotation = 90)
     cbar_axes = ax.figure.axes[-1].yaxis.label.set_weight("bold");
-    
+
     st.pyplot(fig3)
 
     # Regroupement des stations par grandeurs non mesurées:
@@ -148,14 +148,14 @@ if page == pages[1]:
     st.write(dict_reverse[gnm])
 
     # Conclusion:
-    st.markdown("""La mise en évidence de la structure du jeu de données et des valeurs manquantes nous invite à créer 9 datasets différents 
-                (un par modalité de grandeurs non mesurées) pour avoir une gestion plus fine des NaN. 
+    st.markdown("""La mise en évidence de la structure du jeu de données et des valeurs manquantes nous invite à créer 9 datasets différents
+                (un par modalité de grandeurs non mesurées) pour avoir une gestion plus fine des NaN.
                 Il suffira de supprimer les colonnes correspondant aux grandeurs non mesurées une fois les tableaux crées.
                 """)
-    
-    # Elargissement: 
-    st.markdown("""Il existe aussi une répartition des NaN plutôt aléatoire, correspondant sans doute à des interruptions momentannées des appareils de mesures. 
-                Nous les gérerons en remplacant ces valauers par la valeur moyenne (ou la modalité la plus fréquente) 
+
+    # Elargissement:
+    st.markdown("""Il existe aussi une répartition des NaN plutôt aléatoire, correspondant sans doute à des interruptions momentannées des appareils de mesures.
+                Nous les gérerons en remplacant ces valauers par la valeur moyenne (ou la modalité la plus fréquente)
                 calculée par station au sein de chaque tableau.
                 """)
     # TODO: insérer le plot code barre d'Omar.
@@ -166,11 +166,11 @@ if page == pages[1]:
                 """)
     if st.checkbox("Afficher la description statistique"):
         st.dataframe(df.describe())
-    st.markdown("""A première vue, tout à l'air normal. 
+    st.markdown("""A première vue, tout à l'air normal.
                 """)
-    
+
     st.subheader("2.a Variables numériques")
-    st.markdown("""Vérifions -le en regardant de plus prêt la distribution des variables numériques. 
+    st.markdown("""Vérifions -le en regardant de plus prêt la distribution des variables numériques.
                 """)
 
     mesure = st.selectbox("Quelle grandeur numérique étudier?" , var_num)
@@ -187,12 +187,12 @@ if page == pages[1]:
     p_min = round(df_mes_min.shape[0]/df_mes.shape[0]*100, 2)
     st.write("Il y a ", df_mes_min.shape[0], "valeurs extrêmes inférieures pour la mesure", str(mesure),  "sur", df_mes.shape[0], "valeurs mesurées.")
     st.write("Cela correspond à",p_min , "% des valeurs de cette colonne.")
-   
+
     df_mes_max = df_mes.loc[df_mes > ext_max]
     p_max = round(df_mes_max.shape[0]/df_mes.shape[0]*100, 2)
     st.write("Il y a ", df_mes_max.shape[0], "valeurs extrêmes inférieures pour la mesure" , str(mesure),  "sur", df_mes.shape[0], "valeurs mesurées.")
     st.write("Cela correspond à",p_max , "% des valeurs de cette colonne.")
-    
+
     import statsmodels.api as sm
     fig4 = plt.figure(figsize=(7,5))
 
@@ -212,18 +212,18 @@ if page == pages[1]:
 """)
     st.subheader("2.b Variables catégorielles")
     # TODO : insérer la rose des vents, avec un choix de station par menu déroulant?
-                  
-########## Troisième page: Preprocessing ##################       
+
+########## Troisième page: Preprocessing ##################
 if page == pages[2]:
 
-########## Quatrième page: Premières modélisations ##################       
+########## Quatrième page: Premières modélisations ##################
 if page == pages[3]:
 
-########## Cinquième page: Times Series ##################       
+########## Cinquième page: Times Series ##################
 if page == pages[4]:
 
-########## Sixième page: Résultats et choix du modèle ##################       
+########## Sixième page: Résultats et choix du modèle ##################
 if page == pages[5]:
 
-########## Septième page: Démonstration et conclusion ##################       
+########## Septième page: Démonstration et conclusion ##################
 if page == pages[6]:
