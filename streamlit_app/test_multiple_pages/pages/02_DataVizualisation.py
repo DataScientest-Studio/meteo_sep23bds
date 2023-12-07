@@ -228,7 +228,7 @@ box_plot_var = ["WindGustSpeed", "WindSpeed9am", "WindSpeed3pm"]
 box_plot_var_choix = st.selectbox("Quelle variable visualiser ?", box_plot_var)
 st.image("../../reports/figures/box_plot_{}.png".format(box_plot_var_choix))
 
-## ==== VARIABLES CATÉGORIELLES ====
+### === VARIABLES CATÉGORIELLES ===
 
 st.subheader("2.b Variables catégorielles")
 
@@ -247,4 +247,4 @@ st.markdown(
 
 cible_var = ["RainToday", "RainTomorrow"]
 cible_var_choix = st.selectbox("Quelle variable visualiser ?", cible_var)
-st.image("../../reports/figures/distrib_{}.png".format(cible_var_choix))
+st.image("../../reports/figures/distrib_{}_(aucune).png".format(cible_var_choix))
