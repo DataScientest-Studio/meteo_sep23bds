@@ -70,22 +70,39 @@ st.image(
 st.write("\n")
 
 st.markdown("**Résumé :**")
-st.markdown("- `Date`, `Location` : aucune action nécessaire")
+st.markdown("- `Date` : aucune action nécessaire")
+st.markdown("- `Location` : aucune action nécessaire")
 st.markdown(
-    "- Toutes les variables :violet[numériques] sauf `Rainfall` : remplacement des NaN par la moyenne de chaque station"
+    "- Toutes les variables :violet[numériques] sauf `Rainfall` : :blue[remplacement] des NaN par la **moyenne** de chaque station"
 )
 st.markdown(
-    "- `WindGustDir`, `WindDir9am`, `WindDir3pm` : remplacement des NaN par la mode de chaque station"
+    "- `WindGustDir`, `WindDir9am`, `WindDir3pm` : :blue[remplacement] des NaN par la **mode** de chaque station"
 )
-st.markdown("- `RainToday`, `RainTomorrow` : suppression des NaN")
+st.markdown("- `RainToday`, `RainTomorrow` : :red[suppression] des NaN")
 
 
 st.divider()
 
 ### === SECTION ===
-st.subheader(":gear: _Preprocessing_")
+st.subheader(":hammer_and_wrench: _Preprocessing_ et _feature engineering_")
+
+st.markdown("Variables :violet[numériques] : standardisation")
+
+st.markdown("Variables :orange[catégorielles] :")
+st.markdown("- `Date` : extraction et enregistrement de l'année, mois et jour")
+st.markdown("- `Location` : encodage des valeurs de `0` à `48`")
+st.markdown(
+    "- `WindGustDir`, `WindDir9am`, `WindDir3pm` : encodage des valeurs en radians"
+)
+st.markdown(
+    "- `RainToday`, `RainTomorrow` : encodage des valeurs par `0` (`No`) ou `1` (`Yes`)"
+)
 
 st.divider()
 
 ### === SECTION ===
 st.subheader(":ladder: Phases")
+
+st.markdown("Phase A : travail sur neuf sous-tableaux")
+
+st.image("../../reports/figures/data_prep_pipeline.png", output_format="PNG")
