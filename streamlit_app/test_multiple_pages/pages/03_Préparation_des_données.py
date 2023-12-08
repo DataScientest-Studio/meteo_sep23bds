@@ -4,9 +4,9 @@ import streamlit.components.v1 as components
 
 tab_1, tab_2, tab_3 = st.tabs(
     [
-        ":thinking_face: Quels choix effectuer ?",
-        ":hammer_and_wrench: _Preprocessing_ et _feature engineering_",
-        ":calendar: Phases",
+        ":thinking_face: **Quels choix effectuer ?**",
+        ":hammer_and_wrench: **_Preprocessing_ et _feature engineering_**",
+        ":calendar: **Phases**",
     ]
 )
 
