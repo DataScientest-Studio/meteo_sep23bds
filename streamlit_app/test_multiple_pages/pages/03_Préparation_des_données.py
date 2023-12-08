@@ -7,10 +7,12 @@ st.title(":bento: Préparation des données")
 
 st.divider()
 
+
 ## == SECTION ==
 st.header(":thinking_face: Quels choix effectuer ?")
 
 st.write("\n")
+
 
 ### === SOUS-SECTION ===
 st.subheader("Contexte")
@@ -24,6 +26,7 @@ st.markdown("- :blue[Remplacement]")
 st.markdown("- :red[Suppression]")
 
 st.write("\n")
+
 
 ### === SOUS-SECTION ===
 st.subheader("Illustration")
@@ -41,6 +44,7 @@ st.image(
 
 st.write("\n")
 
+
 ### === SOUS-SECTION ===
 st.subheader("Illustration")
 
@@ -56,6 +60,7 @@ st.image(
 )
 
 st.write("\n")
+
 
 ### === SOUS-SECTION ===
 st.subheader("Illustration")
@@ -77,6 +82,7 @@ st.image(
 
 st.write("\n")
 
+
 ### === SOUS-SECTION ===
 st.subheader("Résumé")
 
@@ -92,10 +98,12 @@ st.markdown("- `RainToday`, `RainTomorrow` : :red[suppression] des NaN")
 
 st.divider()
 
+
 ## == SECTION ==
 st.header(":hammer_and_wrench: _Preprocessing_ et _feature engineering_")
 
 st.write("\n")
+
 
 ### === SOUS-SECTION ===
 st.subheader("Variables :violet[numériques]")
@@ -103,6 +111,7 @@ st.subheader("Variables :violet[numériques]")
 st.markdown("- Standardisation")
 
 st.write("\n")
+
 
 ### === SOUS-SECTION ===
 st.subheader("Variables :orange[catégorielles]")
@@ -118,10 +127,12 @@ st.markdown(
 
 st.divider()
 
+
 ## == SECTION ==
 st.header(":calendar: Phases")
 
 st.write("\n")
+
 
 ### === SOUS-SECTION ===
 st.subheader("Phase A")
@@ -136,6 +147,7 @@ components.html(
 
 st.write("\n")
 
+
 ### === SOUS-SECTION ===
 st.subheader("Phase B")
 
@@ -148,6 +160,7 @@ components.html(
 )
 
 st.write("\n")
+
 
 ### === SOUS-SECTION ===
 st.subheader("Phase C")
