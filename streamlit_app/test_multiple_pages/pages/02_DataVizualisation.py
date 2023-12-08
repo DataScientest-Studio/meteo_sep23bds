@@ -245,6 +245,6 @@ st.markdown(
     "Enfin, nous concluons avec les visualisations de la pseudo-variable cible, `RainToday`, et de la variable cible, `RainTomorrow`, dont la valeur est celle de `RainToday` le jour précédent."
 )
 
-cible_var = ["RainToday", "RainTomorrow"]
-cible_var_choix = st.selectbox("Quelle variable visualiser ?", cible_var)
-st.image("../../reports/figures/distrib_{}_(aucune).png".format(cible_var_choix))
+cible_var = ["`RainToday`", "`RainTomorrow`"]
+cible_var_choix = st.radio("Quelle variable visualiser ?", cible_var)
+st.image("../../reports/figures/distrib_{}_Aucune.png".format(cible_var_choix))
