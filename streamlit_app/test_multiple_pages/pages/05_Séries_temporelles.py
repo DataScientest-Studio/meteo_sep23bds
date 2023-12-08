@@ -3,11 +3,11 @@ import streamlit as st
 
 tab_1, tab_2, tab_3, tab_4, tab_5 = st.tabs(
     [
-        ":telescope: Changer d'angle",
-        ":spider_web: KNN-DTW",
-        ":deciduous_tree: TSF",
-        ":rocket: ROCKET",
-        ":gear: _Preprocessing_ +",
+        ":telescope: **Changer d'angle**",
+        ":spider_web: **KNN-DTW**",
+        ":deciduous_tree: **TSF**",
+        ":rocket: **ROCKET**",
+        ":gear: **_Preprocessing_ +**",
     ]
 )
 
@@ -58,7 +58,7 @@ with tab_2:
     st.subheader("Présentation")
 
     st.markdown(
-        "- _K-Nearest Neighbors_ (KNN) avec _Dynamic Time Warping_ (DTW) comme **métrique de distance**"
+        "- _K Nearest Neighbors_ (KNN) avec _Dynamic Time Warping_ (DTW) comme **métrique de distance**"
     )
     st.markdown(
         "- DTW :  mesure la **similarité** entre séries temporelles avec **vitesses différentes**"
@@ -67,9 +67,9 @@ with tab_2:
 
     st.write("\n")
 
-    st.image(
-        "../../reports/figures/series_temp_knn_dtw.png",
-        caption="Source : M. Regan, « K Nearest Neighbors & Dynamic Time Warping ». 5 décembre 2023. Disponible sur : https://github.com/markdregan/K-Nearest-Neighbors-with-Dynamic-Time-Warping",
+    st.image("../../reports/figures/series_temp_knn_dtw.png")
+    st.caption(
+        "Source : Regan, 2023. [« K Nearest Neighbors & Dynamic Time Warping »](https://github.com/markdregan/K-Nearest-Neighbors-with-Dynamic-Time-Warping)."
     )
 
     st.write("\n")
@@ -80,10 +80,10 @@ with tab_2:
     st.code(
         """from sktime.classification.distance_based import KNeighborsTimeSeriesClassifier
 
-    clf = KNeighborsTimeSeriesClassifier(n_neighbors=1, distance="dtw")
+clf = KNeighborsTimeSeriesClassifier(n_neighbors=1, distance="dtw")
 
-    clf.fit(X_train, y_train)
-    y_pred = clf.predict(X_test)"""
+clf.fit(X_train, y_train)
+y_pred = clf.predict(X_test)"""
     )
 
 
@@ -107,10 +107,9 @@ with tab_3:
 
     st.write("\n")
 
-    st.image(
-        "../../reports/figures/series_temp_tsf.png",
-        caption="Source : H. Deng, G. Runger, E. Tuv, et M. Vladimir, « A time series forest for classification and feature extraction », Information Sciences, vol. 239, p. 142-153, août 2013, doi: 10.1016/j.ins.2013.02.030.",
-        width=480,
+    st.image("../../reports/figures/series_temp_tsf.png", width=480)
+    st.caption(
+        "Source : Deng et al., 2013. [« A time series forest for classification and feature extraction »](https://doi.org/10.1016/j.ins.2013.02.030)."
     )
 
     st.write("\n")
@@ -121,10 +120,10 @@ with tab_3:
     st.code(
         """from sktime.classification.interval_based import TimeSeriesForestClassifier
 
-    clf = TimeSeriesForestClassifier(n_estimators=200, min_interval=3)
+clf = TimeSeriesForestClassifier(n_estimators=200, min_interval=3)
 
-    clf.fit(X_train, y_train)
-    y_pred = clf.predict(X_test)"""
+clf.fit(X_train, y_train)
+y_pred = clf.predict(X_test)"""
     )
 
 
@@ -148,9 +147,9 @@ with tab_4:
 
     st.write("\n")
 
-    st.image(
-        "../../reports/figures/series_temp_rocket.png",
-        caption="Source : « Convolution based time series classification in aeon », aeon. Disponible sur : https://www.aeon-toolkit.org/en/latest/examples/classification/examples/classification/convolution_based.html",
+    st.image("../../reports/figures/series_temp_rocket.png")
+    st.caption(
+        "Source : aeon. [« Convolution-based time series classification in aeon »](https://www.aeon-toolkit.org/en/latest/examples/classification/examples/classification/convolution_based.html)."
     )
 
     st.write("\n")
@@ -160,16 +159,16 @@ with tab_4:
 
     st.code(
         """from sktime.transformations.panel.rocket import Rocket
-    from sklearn.linear_model import SGDClassifier
+from sklearn.linear_model import SGDClassifier
 
-    trf = Rocket(num_kernels=10000)
-    clf = SGDClassifier(loss="log_loss")
+trf = Rocket(num_kernels=10000)
+clf = SGDClassifier(loss="log_loss")
 
-    X_train = trf.fit_transform(X_train)
-    X_test = trf.transform(X_test)
+X_train = trf.fit_transform(X_train)
+X_test = trf.transform(X_test)
 
-    clf.fit(X_train, y_train)
-    y_pred = clf.predict(X_test)"""
+clf.fit(X_train, y_train)
+y_pred = clf.predict(X_test)"""
     )
 
 
@@ -180,4 +179,59 @@ with tab_5:
     ## == SECTION ==
     st.header(":gear: _Preprocessing_ +")
 
-    st.markdown("_Suite_")
+    st.write("\n")
+
+    ### === SOUS-SECTION ===
+    st.subheader("Tri")
+
+    st.markdown("- **Condition :** données doivent être classées par `Date`")
+    st.markdown("- **Problème :** elles sont classées par `Location`")
+    st.markdown("- **Solution :** indexation par `Date`, puis tri par index")
+
+    st.write("\n")
+
+    ### === SOUS-SECTION ===
+    st.subheader("Découpage")
+
+    st.markdown(
+        "- **Condition :** `X_train` et `y_train` doivent être plus anciens que `X_test` et `y_test`"
+    )
+    st.markdown(
+        "- **Problème :** `train_test_split` (basé sur `ShuffleSplit`) applique un découpage aléatoire"
+    )
+    st.markdown("- **Solution :**  `TimeSeriesSplit` (basé sur `KFold`)")
+
+    st.write("\n")
+
+    col_1, col_2 = st.columns(2)
+    with col_1:
+        st.image("../../reports/figures/split_shuffle.png")
+    with col_2:
+        st.image("../../reports/figures/split_time_series.png")
+    st.caption(
+        "Source : scikit-learn. [« Visualizing cross-validation behavior in scikit-learn »](https://scikit-learn.org/stable/auto_examples/model_selection/plot_cv_indices.html)."
+    )
+
+    st.write("\n")
+
+    ### === SOUS-SECTION ===
+    st.subheader("Conversion")
+
+    st.markdown("- **Condition :** données doivent être dans un format compatible")
+    st.markdown("- **Problème :** DataFrames `pandas` standard non compatibles")
+    st.markdown("- **Solution** pour KNN-DTW : conversion en `numpy3D`")
+    st.markdown(
+        "- **Solution** pour TSF : conversion en `numpy3D`, puis application de `ColumnConcatenator` (de `sktime`)"
+    )
+    st.markdown(
+        "- **Solution** pour ROCKET : conversion en `Panel`, puis application de `to_sktime_dataset` (de `tslearn`)"
+    )
+
+    st.write("\n")
+
+    st.image("../../reports/figures/series_temp_crane.png")
+    st.caption(
+        "Source : Izbicki, 2011. [« Converting images into time series for data mining »](https://izbicki.me/blog/converting-images-into-time-series-for-data-mining.html)."
+    )
+
+    #### Illustrate data types
