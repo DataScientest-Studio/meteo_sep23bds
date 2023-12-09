@@ -1,4 +1,10 @@
 import streamlit as st
+import pandas as pd
+
+
+st.set_page_config(
+    page_title="Prévision météo en Australie", page_icon=":partly_sunny:"
+)
 
 
 tab_1, tab_2, tab_3, tab_4, tab_5 = st.tabs(
@@ -107,7 +113,7 @@ with tab_3:
 
     st.write("\n")
 
-    st.image("../../reports/figures/series_temp_tsf.png", width=480)
+    st.image("../../reports/figures/series_temp_tsf.png", width=450)
     st.caption(
         "Source : Deng et al., 2013. [« A time series forest for classification and feature extraction »](https://doi.org/10.1016/j.ins.2013.02.030)."
     )
@@ -219,13 +225,44 @@ with tab_5:
 
     st.markdown("- **Condition :** données doivent être dans un format compatible")
     st.markdown("- **Problème :** DataFrames `pandas` standard non compatibles")
+
     st.markdown("- **Solution** pour KNN-DTW : conversion en `numpy3D`")
+    with st.expander("Exemple"):
+        st.code(
+            """
+array([[[ 1,  2,  3],
+        [ 4,  5,  6]],
+
+       [[ 1,  2,  3],
+        [ 4, 55,  6]],
+
+       [[ 1,  2,  3],
+        [42,  5,  6]]])
+            """
+        )
+
     st.markdown(
         "- **Solution** pour TSF : conversion en `numpy3D`, puis application de `ColumnConcatenator` (de `sktime`)"
     )
+    with st.expander("Exemple"):
+        st.code(
+            """
+array([[[ 1,  2,  3,  4,  5,  6]],
+
+       [[ 1,  2,  3,  4, 55,  6]],
+
+       [[ 1,  2,  3, 42,  5,  6]]])
+            """
+        )
+
     st.markdown(
-        "- **Solution** pour ROCKET : conversion en `Panel`, puis application de `to_sktime_dataset` (de `tslearn`)"
+        "- **Solution** pour ROCKET : conversion en `Panel` par application de `to_sktime_dataset` (de `tslearn`)"
     )
+    with st.expander("Exemple"):
+        X_train_Panel_head = pd.read_csv(
+            "../../data/processed/omar/X_train_Panel_head.csv", index_col=0
+        )
+        st.dataframe(X_train_Panel_head)
 
     st.write("\n")
 
@@ -233,5 +270,3 @@ with tab_5:
     st.caption(
         "Source : Izbicki, 2011. [« Converting images into time series for data mining »](https://izbicki.me/blog/converting-images-into-time-series-for-data-mining.html)."
     )
-
-    #### Illustrate data types
