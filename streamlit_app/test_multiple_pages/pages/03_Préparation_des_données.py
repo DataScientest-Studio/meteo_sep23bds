@@ -2,6 +2,11 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 
+st.set_page_config(
+    page_title="Prévision météo en Australie", page_icon=":partly_sunny:"
+)
+
+
 tab_1, tab_2, tab_3 = st.tabs(
     [
         ":thinking_face: **Quels choix effectuer ?**",
@@ -64,7 +69,8 @@ with tab_1:
     st.image(
         "../../reports/figures/rose_vents_Sydney_{}.png".format(
             strategie_remplacement_vent_choix
-        )
+        ),
+        width=450,
     )
 
     st.write("\n")
@@ -75,17 +81,23 @@ with tab_1:
     st.markdown(
         ":red[Suppression] des NaN dans les variables pseudo-cible et cible (:orange[catégorielles]) :"
     )
-    var_cible = ["`RainToday`", "`RainTomorrow`"]
-    var_cible_choix = st.radio("Variable :", var_cible)
     strategie_remplacement_cible = ["Aucune", "`dropna`"]
     strategie_remplacement_cible_choix = st.radio(
         "Stratégie :", strategie_remplacement_cible
     )
-    st.image(
-        "../../reports/figures/distrib_{}_{}.png".format(
-            var_cible_choix, strategie_remplacement_cible_choix
+    col_1, col_2 = st.columns(2)
+    with col_1:
+        st.image(
+            "../../reports/figures/distrib_`RainToday`_{}.png".format(
+                strategie_remplacement_cible_choix
+            )
         )
-    )
+    with col_2:
+        st.image(
+            "../../reports/figures/distrib_`RainTomorrow`_{}.png".format(
+                strategie_remplacement_cible_choix
+            )
+        )
 
     st.write("\n")
 
