@@ -128,3 +128,16 @@ dmypy.json
 # Pyre type checker
 .pyre/
 reports/.DS_Store
+models/saves/grid_saves/grid_dt.joblib
+models/saves/grid_saves/grid_knn.joblib
+models/saves/grid_saves/grid_logreg.joblib
+models/saves/grid_saves/grid_rdf.joblib
+models/saves/model_saves/save_dt_CC.joblib
+models/saves/model_saves/save_dt_SMOTE.joblib
+models/saves/model_saves/save_knn_CC.joblib
+models/saves/model_saves/save_knn_SMOTE.joblib
+models/saves/model_saves/save_logreg_CC.joblib
+models/saves/model_saves/save_logreg_SMOTE.joblib
+models/saves/model_saves/save_rdf.joblib
+models/saves/model_saves/save_rdf_CC.joblib
+models/saves/model_saves/save_rdf_SMOTE.joblib
