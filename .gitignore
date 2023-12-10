@@ -127,7 +127,8 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-reports/.DS_Store
+
+# Model & GridSearchCV saves
 models/saves/grid_saves/grid_dt.joblib
 models/saves/grid_saves/grid_knn.joblib
 models/saves/grid_saves/grid_logreg.joblib
