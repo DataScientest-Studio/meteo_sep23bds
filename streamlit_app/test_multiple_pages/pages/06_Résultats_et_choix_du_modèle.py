@@ -8,18 +8,19 @@ df_tot = pd.read_excel("../../references/scores.xlsx") # les résultats des 70+ 
 df = pd.read_csv("../../references/final_results.csv") # uniquement les résultats sur le tableau entier
 df_tot.drop(columns = 'experiment', inplace = True)
 
-st.title("Projet Météo en Australie")
+st.title(":scales: Résultats et choix du modèle")
+st.divider()
 
 if st.checkbox("Les résultats au complet:"):
-        st.markdown("""Ce tableau reprend l'esnemble des expériences réalisées, sur les 9 sous datasets, et sur le tableau entier.""")
+        st.markdown("""Ce tableau reprend l':blue[ensemble des expériences réalisées], sur les 9 sous datasets, et sur le tableau entier.""")
         st.dataframe(df_tot)
 
 if st.checkbox("Les résultats sur le tableau entier uniquement"):
-        st.markdown("""Voici uniquement les résultats obtenus sur le tableau entier, avec une autre modalité de gestion des valeurs manquantes.""")
+        st.markdown("""Voici uniquement les résultats obtenus sur le :blue[tableau entier], avec une autre modalité de gestion des valeurs manquantes.""")
         st.dataframe(df)
-st.markdown(""" En l'absence de contexte professionnel  fournissant un cahier des charges déterminé, nous choisissons un critère basé sur l'accuracy.  
+st.markdown(""" En l'absence de contexte professionnel  fournissant un cahier des charges déterminé, nous choisissons un :blue[critère basé sur l'accuracy].  
            A l'usage, il s'est avéré que c'était l'indicateur que nous regardions en premier. Nous pensons fournir un algorithme qui puisse prédire correctement 
-            le temps du lendemain 5 fois sur 6, soit une accuracy de 83% minimum. 
+            le temps du lendemain :orange[5 fois sur 6], soit une accuracy de :violet[83% minimum]. 
             """)
 
 st.markdown("""Affichage des 10 meilleurs modèles sur le tableau entier:
@@ -35,5 +36,5 @@ st.pyplot(fig_06_01)
 
 st.markdown(""" Il y plusieurs candidats possibles. Notre choix final s'effectue en prenant en compte d'autres aspect, comme l'équilibre des précisions et le rappel, 
             surtout pour la classe positive, minoritaire.  
-            **Conclusion** : Nous optons pour `RandomForest`, ré-équilibré avec SMOTE, avec un seuil optimisé grâce à la coure ROC.
+            **Conclusion** : Nous optons pour `RandomForest`, ré-équilibré avec SMOTE, avec un :green[seuil optimisé] grâce à la coure ROC.
             """)
