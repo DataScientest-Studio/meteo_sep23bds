@@ -43,5 +43,5 @@ st.markdown(
 )
 
 st.markdown("Cliquez sur les liens suivants pour en savoir plus sur nous !")
-st.markdown("- [Alexandre Winger](https://github.com/alexandrewinger)")
-st.markdown("- [Omar Choa](https://www.linkedin.com/in/omarchoa/)")
+st.markdown("- [Alexandre WINGER](https://github.com/alexandrewinger)")
+st.markdown("- [Omar CHOA](https://www.linkedin.com/in/omarchoa/)")
