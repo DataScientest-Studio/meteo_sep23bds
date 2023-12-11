@@ -24,9 +24,15 @@ tab_1, tab_2 = st.tabs(
 
 ####################################### 1. Premières analyses et stratégie de gestion des NaN ##################################
 with tab_1:
+    # = PAGE =
     st.title(":chart_with_upwards_trend: DataVizualisation")
+
+    ## == SECTION == 
     st.header(":microscope: Premières analyses et stratégie de gestion des NaN")
-    # Countplot par station:
+
+    ### === SOUS-SECTION ===
+    st.subheader("Countplot par station")
+
     st.markdown("""Il y a environ :orange[3000 mesures] par station:""")
 
     fig1 = plt.figure(figsize=(20, 8))
@@ -41,11 +47,15 @@ with tab_1:
                 En revanche, toutes les mesures :blue[s'arrêtent en même temps]:"""
     )
 
-    # Analyse des dates
+    ### === SOUS-SECTION ===
+    st.subheader("Analyse des dates")
+
     df_dates = pd.read_csv("../../data/interim/dates.csv")
     st.dataframe(df_dates.head(10))
 
-    # Strip plots :
+    ### === SOUS-SECTION ===
+    st.subheader("Strip plots")
+
     if st.checkbox("Afficher le graphique strip plot:"):
         st.markdown(
             """ Observons les strip plots de quelques grandeurs:
@@ -74,8 +84,8 @@ with tab_1:
                 par une station donnée.
                 """
         )
-
-    # Grandeurs non mesurées
+    ### === SOUS-SECTION ===
+    st.subheader("Grandeurs non mesurées")
     dict = joblib.load("dict_station_non_mes.joblib")
     dict_reverse = joblib.load("dict_reverse.joblib")
 
@@ -95,7 +105,9 @@ with tab_1:
                 """
     )
 
-    # Heatmap des nan:
+    ### === SOUS-SECTION ===
+    st.subheader("Heatmap des nan")
+
     nan_map = pd.read_csv("../../data/interim/nan_map.csv", index_col="Location")
     fig3 = plt.figure(figsize=(20, 7))
     ax = sns.heatmap(
@@ -117,56 +129,66 @@ with tab_1:
 
     st.pyplot(fig3)
 
-    # Regroupement des stations par grandeurs non mesurées:
+    ### === SOUS-SECTION ===
+    st.subheader("Regroupement des stations par grandeurs non mesurées")
+
     st.markdown(
         """On peut :blue[regrouper les stations] en fonction des :orange[modalités de grandeurs non mesurées]:
-                """
-    )
-    modes = list(
-        dict_reverse.keys()
-    )  # liste des 9 modalités de non mesures concaténées (ex: Evaporation_Sunshine)
+                """)
+    
+    modes = list(dict_reverse.keys())  # liste des 9 modalités de non mesures concaténées (ex: Evaporation_Sunshine)
     gnm = st.selectbox("Quelle modalité choisir?", modes)
     st.write(dict_reverse[gnm])
 
-    # Conclusion:
-    st.markdown(
-        """La mise en évidence de la structure du jeu de données et des valeurs manquantes nous invite à :blue[créer 9 datasets différents]
+    ### === SOUS-SECTION ===
+    st.subheader("Conclusion")
+
+    st.markdown("""
+                La mise en évidence de la structure du jeu de données et des valeurs manquantes nous invite à :blue[créer 9 datasets différents]
                 (un par modalité de grandeurs non mesurées) pour avoir une gestion plus fine des NaN.
                 Il suffira de supprimer les colonnes correspondant aux grandeurs non mesurées une fois les tableaux crées.
-                """
-    )
-
-    # Élargissement et visualisation de la distribution spatio-temporelle des données pour des variables choisies (graphiques en « codes barre »)
-    st.markdown(
-        """Il existe aussi une :orange[répartition des NaN plutôt aléatoire], 
+                """)
+    
+    ### === SOUS-SECTION ===
+    st.subheader("""Élargissement et visualisation de la distribution spatio-temporelle des données pour des variables choisies (graphiques en « codes barre »)""")
+                 
+    st.markdown("""
+        Il existe aussi une :orange[répartition des NaN plutôt aléatoire], 
         correspondant sans doute à des interruptions momentanées des appareils de mesures. 
         Nous les gérerons en remplacant ces valeurs par la valeur moyenne 
-        ou la modalité la plus fréquente calculée par station au sein de chaque tableau."""
-    )
+        ou la modalité la plus fréquente calculée par station au sein de chaque tableau.
+        """)
+
     code_barre_var = ["Evaporation", "Sunshine", "Cloud9am", "Cloud3pm"]
     code_barre_var_choix = st.selectbox("Quelle variable visualiser ?", code_barre_var)
     st.image("../../reports/figures/code_barre_{}.png".format(code_barre_var_choix))
 
 ########################################### 2. Analyse de la distribution statistiques des valeurs  ##############################
 with tab_2:
+    # = PAGE =
     st.title(":chart_with_upwards_trend: DataVizualisation")
+    ## == SECTION ==
     st.header(":bar_chart: Analyse de la distribution statistiques des valeurs")
+
+    ### === SOUS-SECTION ===
+    st.subheader("Analyse rapide")
+
     st.markdown(
         """Nous cherchons à déterminer s'il y a des valeurs extrêmes aberrantes.
-                """
-    )
+        """)
+    
     if st.checkbox("Afficher la description statistique"):
         st.dataframe(df.describe())
+
     st.markdown(
         """A première vue, :green[tout à l'air normal] 	:heavy_check_mark:.
-                """
-    )
+        """)
 
-    st.subheader("2.a Variables numériques")
+    ### === SOUS-SECTION ===
+    st.subheader("Variables numériques")
     st.markdown(
         """Vérifions -le en regardant de plus prêt la distribution des variables numériques.
-                """
-    )
+        """)
 
     mesure = st.selectbox("Quelle grandeur numérique étudier?", var_num)
 
@@ -224,10 +246,9 @@ with tab_2:
 
     st.pyplot(fig4)
 
-    st.markdown(
-        """ **Conclusion**: :green[Tout est en ordre], il n'y a pas de mesure particulière à prendre concernant la distribution des variables numériques.
-    """
-    )
+    st.markdown(""" 
+                **Conclusion**: :green[Tout est en ordre], il n'y a pas de mesure particulière à prendre concernant la distribution des variables numériques.
+                """)
 
     st.write("\n")
 
@@ -240,9 +261,8 @@ with tab_2:
     box_plot_var_choix = st.selectbox("Quelle variable visualiser ?", box_plot_var)
     st.image("../../reports/figures/box_plot_{}.png".format(box_plot_var_choix))
 
-    ### === VARIABLES CATÉGORIELLES ===
-
-    st.subheader("2.b Variables catégorielles")
+    ### === SOUS-SECTION ===
+    st.subheader("Variables catégorielles")
 
     st.markdown("Nous examinons ensuite les variables catégorielles.")
 
