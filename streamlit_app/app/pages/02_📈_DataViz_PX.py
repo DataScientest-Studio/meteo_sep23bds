@@ -14,7 +14,7 @@ st.set_page_config(
 with st.sidebar:
     st.header(":partly_sunny: Prévision météo en Australie")
     st.markdown(
-        "Un projet de _data science_ réalisé par [Alexandre Winger](https://github.com/alexandrewinger) et [Omar Choa](https://www.linkedin.com/in/omarchoa/)."
+        "Un projet de _data science_ réalisé par [Alexandre WINGER](https://github.com/alexandrewinger) et [Omar CHOA](https://www.linkedin.com/in/omarchoa/)."
     )
 
 

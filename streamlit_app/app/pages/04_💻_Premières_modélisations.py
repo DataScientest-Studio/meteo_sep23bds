@@ -26,7 +26,7 @@ st.set_page_config(
 with st.sidebar:
     st.header(":partly_sunny: Prévision météo en Australie")
     st.markdown(
-        "Un projet de _data science_ réalisé par [Alexandre Winger](https://github.com/alexandrewinger) et [Omar Choa](https://www.linkedin.com/in/omarchoa/)."
+        "Un projet de _data science_ réalisé par [Alexandre WINGER](https://github.com/alexandrewinger) et [Omar CHOA](https://www.linkedin.com/in/omarchoa/)."
     )
 
 
@@ -72,12 +72,14 @@ with tab_1:
     ## == SOUS-SECTION ==
     st.header("Modèles de classification simples")
 
-    st.markdown("""On choisit d'entrainer 4 modèles :  
-                        - Régression Logistique (logreg),  
-                        - Arbre de décision (Decision Tree, dt),  
-                        - Forêts aléatoires (RandomForest, rdf),  
-                        - K plus proches voisins (K Nearest Neighbors, knn)  
-                """)
+    st.markdown(
+        """On choisit d'entrainer 4 modèles :
+                        - Régression Logistique (logreg),
+                        - Arbre de décision (Decision Tree, dt),
+                        - Forêts aléatoires (RandomForest, rdf),
+                        - K plus proches voisins (K Nearest Neighbors, knn)
+                """
+    )
 
     st.markdown(
         """ Pour chaque modèle, une sélection des meilleurs paramètres est effectuée grâce à `GridSearchCV`.
