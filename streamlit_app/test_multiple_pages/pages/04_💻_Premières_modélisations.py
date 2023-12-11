@@ -22,6 +22,14 @@ st.set_page_config(
 )
 
 
+# = SIDEBAR =
+with st.sidebar:
+    st.header(":partly_sunny: Prévision météo en Australie")
+    st.markdown(
+        "Un projet de _data science_ réalisé par [Alexandre Winger](https://github.com/alexandrewinger) et [Omar Choa](https://www.linkedin.com/in/omarchoa/)."
+    )
+
+
 df = pd.read_csv("../../data/raw/weatherAUS.csv")
 
 # Liste des variables numériques pour créer un menu déroulant pour les graphes:
