@@ -135,8 +135,8 @@ with tab_1:
     )
 
     plt.title("Taux de NaN", fontweight="bold", fontsize=16)
-    plt.xlabel("Variable", fontweight="bold")
-    plt.ylabel("Location", fontweight="bold")
+    plt.xlabel("Location", fontweight="bold")
+    plt.ylabel("Variable", fontweight="bold")
     plt.xticks(rotation=90)
     cbar_axes = ax.figure.axes[-1].yaxis.label.set_weight("bold")
 
