@@ -31,7 +31,7 @@ tab_1, tab_2 = st.tabs(
 ####################################### 1. Premières analyses et stratégie de gestion des NaN ##################################
 with tab_1:
     # = PAGE =
-    st.title(":chart_with_upwards_trend: DataVizualisation")
+    st.title(":chart_with_upwards_trend: DataViz")
 
     ## == SECTION ==
     st.header(":microscope: Premières analyses et stratégie de gestion des NaN")
@@ -180,7 +180,7 @@ with tab_1:
 ########################################### 2. Analyse de la distribution statistiques des valeurs  ##############################
 with tab_2:
     # = PAGE =
-    st.title(":chart_with_upwards_trend: DataVizualisation")
+    st.title(":chart_with_upwards_trend: DataViz")
     ## == SECTION ==
     st.header(":bar_chart: Analyse de la distribution statistiques des valeurs")
 

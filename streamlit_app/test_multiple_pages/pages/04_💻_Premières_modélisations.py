@@ -32,9 +32,9 @@ liste_stations = list(df["Location"].unique())
 
 tab_1, tab_2, tab_3 = st.tabs(
     [
-        "Ré-équilibrage",
-        "Choix d'un modèle",
-        "Optimisations",
+        ":scales: Ré-équilibrage",
+        ":crown: Choix d'un modèle",
+        ":screwdriver: Optimisations",
     ]
 )
 
