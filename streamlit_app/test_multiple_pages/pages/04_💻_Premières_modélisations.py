@@ -72,13 +72,12 @@ with tab_1:
     ## == SOUS-SECTION ==
     st.header("Modèles de classification simples")
 
-    st.markdown(
-        """ On choisit d'entrainer 4 modèles :
-                        * Régression Logistique (logreg),
-                        * Arbre de décision (Decision Tree, dt),
-                        * Forêts aléatoires (RandomForest, rdf),
-                        * K plus proches voisins (K Nearest Neighbors, knn)"""
-    )
+    st.markdown("""On choisit d'entrainer 4 modèles :  
+                        - Régression Logistique (logreg),  
+                        - Arbre de décision (Decision Tree, dt),  
+                        - Forêts aléatoires (RandomForest, rdf),  
+                        - K plus proches voisins (K Nearest Neighbors, knn)  
+                """)
 
     st.markdown(
         """ Pour chaque modèle, une sélection des meilleurs paramètres est effectuée grâce à `GridSearchCV`.
