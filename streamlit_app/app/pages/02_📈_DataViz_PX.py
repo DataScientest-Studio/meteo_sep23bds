@@ -314,7 +314,7 @@ with tab_2:
             lat="Latitude",
             lon="Longitude",
             hover_name="Location",
-            zoom=1,
+            zoom=1.5,
             center={"lat": -23.116667, "lon": 132.133333},
             mapbox_style="carto-positron",
             height=360,
