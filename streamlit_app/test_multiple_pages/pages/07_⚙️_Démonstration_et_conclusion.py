@@ -62,7 +62,9 @@ st.divider()
 ## == SECTION ==
 st.header("Résultats")
 
-st.markdown("Voici les résultats pour notre :orange[meilleur modèle] sur le jeu de test:")
+st.markdown(
+    "Voici les résultats pour notre :orange[meilleur modèle] sur le jeu de test:"
+)
 
 class_rep = pd.DataFrame.from_dict(
     classification_report(y_test, y_preds, output_dict=True, digits=2)
@@ -86,7 +88,7 @@ feats_i = feats_i.sort_values("Importance", ascending=False)
 new_col = list(feats_i["Feature"])
 
 clic = st.button("Essayons de prédire nous-même!")
-if clic == True :
+if clic == True:
     n = np.random.choice(Xt.index)  # choix d'une ligne par index dans Xt
 
     ech = Xt.loc[[n]]  # double crochets pour avoir un df
@@ -96,41 +98,26 @@ if clic == True :
 
     ech = ech.reindex(columns=new_col)
 
-    st.markdown("""
+    st.markdown(
+        """
                 Voici un échantillon tiré aléatoirement parmi l'ensemble de test.
                 Les colonnes sont triées par ordre d'importances estimées par le modèle.
-                """)
+                """
+    )
 
     st.dataframe(ech)
-    st.write("\n")
-    st.write("\n")
-    st.write("\n")
-    st.write("\n")
-    st.write("\n")
-    st.write("\n")
-    st.write("\n")
-    st.write("\n")
-    st.write("\n")
-    st.write("\n")
-    st.write("\n")
-    st.write("\n")
-    st.write("\n")
-    st.write("\n")
-    st.write("\n")
-    st.write("\n")
-    st.write("\n")
-    st.write("\n")
-    st.write("\n")
-    st.write("\n")
 
-    if y_pred.array[0] == 1:
-        st.write("On prévoit de la pluie :rain_cloud: demain :umbrella_with_rain_drops:.")
-    else:
-        st.write("On prévoit du beau temps :sun_with_face: demain :sunglasses: .")
+    with st.expander("🔮 Découvrons la réponse ! "):
+        if y_pred.array[0] == 1:
+            st.write(
+                "On prévoit de la pluie :rain_cloud: demain :umbrella_with_rain_drops:."
+            )
+        else:
+            st.write("On prévoit du beau temps :sun_with_face: demain :sunglasses: .")
 
-    if (
-        y_pred.array[0] == yt[n]
-    ):  # il faut convertir y_test en array pour pouvoir appeler le nombre correspondant à la ligne n.
-        st.write("Cette prédiction est exacte! :heavy_check_mark:")
-    else:
-        st.write("Cette prédiction est incorrecte... :x:")
+        if (
+            y_pred.array[0] == yt[n]
+        ):  # il faut convertir y_test en array pour pouvoir appeler le nombre correspondant à la ligne n.
+            st.write("Cette prédiction est exacte! :heavy_check_mark:")
+        else:
+            st.write("Cette prédiction est incorrecte... :x:")
