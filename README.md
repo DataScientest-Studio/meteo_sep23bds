@@ -41,5 +41,5 @@ Nous sommes Alex et Omar, les **Weather Boys** !
 Tous deux issus d'un parcours scientifique et attirés par le monde de la _data_, nous avons décidé de sauter le pas en nous inscrivant chez DataScientest.
 
 Cliquez sur les liens suivants pour en savoir plus sur nous !
-- Omar CHOA ([GitHub](https://github.com/omarchoa) / [LinkedIn](https://www.linkedin.com/in/omarchoa/))
 - Alexandre WINGER ([GitHub](https://github.com/alexandrewinger))
+- Omar CHOA ([GitHub](https://github.com/omarchoa) / [LinkedIn](https://www.linkedin.com/in/omarchoa/))
