@@ -1,78 +1,45 @@
-# ProjectTemplate
+# ⛅️ Prévision méteo en Australie
 
-## Explanations and Instructions
 
-This repository contains the files needed to initialize a project for your [DataScientest](https://datascientest.com/) training.
+## 👋 Bienvenue !
+Ce dépôt GitHub contient le code pour « **Prévision météo en Australie** », le <span style="color:red">projet fil rouge</span> que nous avons réalisé dans le cadre de notre formation « [Data Scientist](https://datascientest.com/formation-data-scientist) » chez [DataScientest](https://datascientest.com/).
 
-It contains mainly the present README.md file and an application template [Streamlit](https://streamlit.io/).
+Notre projet est issu de « [Rain in Australia](https://www.kaggle.com/datasets/jsphyg/weather-dataset-rattle-package) », une compétition [Kaggle](https://www.kaggle.com/) qui propose un ensemble de relevés météorologiques contenant environ 10 ans d’observations enregistrées par 49 stations en Australie.
 
-**README**
+Notre <span style="color:red">objectif</span> reprend celui de la compétition Kaggle : développer, à partir des données, un modèle de classification visant à prédire s'il pleuvra le lendemain ou pas.
 
-The README.md file is a central element of any git repository. It allows you to present your project, its objectives, and to explain how to install and launch the project, or even how to contribute to it.
 
-You will have to modify different sections of this README.md to include the necessary informations.
+## 💻 Installation
+Vous pouvez explorer et exécuter les notebooks [ici](./notebooks).
 
-- Complete the sections (`## Presentation and Installation` `## Streamlit App`) following the instructions in these sections.
-- Delete this section (`## Explanations and Instructions`)
-
-**Streamlit Application**
-
-A [Streamlit] application template (https://streamlit.io/) is available in the [streamlit_app](streamlit_app) folder. You can use this template to start with your project.
-
-## Presentation and Installation
-
-Complete this section with a brief description of your project, the context (including a link to the DataScientest course), and the objectives.
-
-You can also add a brief presentation of the team members with links to your respective networks (GitHub and/or LinkedIn for example).
-
-**Example:**
-
-This repository contains the code for our project **PROJECT_NAME**, developed during our [Data Scientist training](https://datascientest.com/en/data-scientist-course) at [DataScientest](https://datascientest.com/).
-
-The goal of this project is to **...**
-
-This project was developed by the following team :
-
-- John Doe ([GitHub](https://github.com/) / [LinkedIn](http://linkedin.com/))
-- Martin Dupont ([GitHub](https://github.com/) / [LinkedIn](http://linkedin.com/))
-
-You can browse and run the [notebooks](./notebooks). 
-
-You will need to install the dependencies (in a dedicated environment) :
-
-```
-pip install -r requirements.txt
-```
-**Présentation**
-Ce repo contient le code pour notre projet **Météo en Australie**, réalisé lors de notre [formation Data Scientist](https://datascientest.com/en/data-scientist-course) chez [DataScientest](https://datascientest.com/).
-
-Nous sommes les **Weather Boys**, et notre objectif est d'analyser le relevé quotidien de 49 stations météorologiques en Australie pendant une période d'environ 8 ans (de 2009 à 2017) afin de développer une solution de machine learning visant à prédire, à partir d'un relevé, s'il pleuvra le lendemain ou pas. 
-
-Ce projet a été réalisé par:
-
-- Omar CHOA ([GitHub](https://github.com/omarchoa) / [LinkedIn](https://www.linkedin.com/in/omarchoa/))
-- Frédéric VINCENT
-- Alexandre WINGER ([GitHub](https://github.com/alexandrewinger))
-
-Vous pouvez explorer et exécuter les [notebooks](./notebooks).
-
-Vous aurez besoin d'installer les dépendances suivantes dans un environnement dédié:
-
-```
-pip install -r requirements.txt
-```
-
-## Streamlit App
-
-**Add explanations on how to use the app.**
-
-To run the app (be careful with the paths of the files in the app):
+Vous aurez besoin d'installer les dépendances suivantes dans un environnement dédié :
 
 ```shell
-conda create --name my-awesome-streamlit python=3.9
-conda activate my-awesome-streamlit
-pip install -r requirements.txt
-streamlit run app.py
+pip install -r requirements_alex.txt
+pip install -r requirements_omar.txt
 ```
 
-The app should then be available at [localhost:8501](http://localhost:8501).
+
+## 👑 Streamlit
+Pour exécuter l'application Streamlit du projet :
+1. Lancez une console
+2. Placez-vous dans le dossier suivant :
+```shell
+meteo_sep23bds/streamlit_app/app
+```
+3. Exécutez la commande suivante :
+```shell
+streamlit run 🏡_Introduction.py
+```
+
+L'application devrait alors être disponible à l'adresse suivante : [localhost:8501](http://localhost:8501).
+
+
+## 👨‍💻👨‍💻 Auteurs
+Nous sommes Alex et Omar, les **Weather Boys** !
+
+Tous deux issus d'un parcours scientifique et attirés par le monde de la _data_, nous avons décidé de sauter le pas en nous inscrivant chez DataScientest.
+
+Cliquez sur les liens suivants pour en savoir plus sur nous !
+- Omar CHOA ([GitHub](https://github.com/omarchoa) / [LinkedIn](https://www.linkedin.com/in/omarchoa/))
+- Alexandre WINGER ([GitHub](https://github.com/alexandrewinger))
