@@ -9,7 +9,7 @@ Notre projet est issu de « [Rain in Australia](https://www.kaggle.com/datasets/
 Notre <span style="color:red">objectif</span> reprend celui de la compétition Kaggle : développer, à partir des données, un modèle de classification visant à prédire s'il pleuvra le lendemain ou pas.
 
 
-## 💻 Installation
+## 💻 Utilisation
 Vous pouvez explorer et exécuter les notebooks [ici](./notebooks).
 
 Vous aurez besoin d'installer les dépendances suivantes dans un environnement dédié :
