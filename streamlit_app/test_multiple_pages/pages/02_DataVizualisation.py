@@ -15,12 +15,13 @@ var_num = list(df.select_dtypes(include=float).columns)
 # Liste des stations:
 liste_stations = list(df["Location"].unique())
 
-st.title("Projet Météo en Australie")
+st.title(":bar_chart: DataVIzualisation")
+st.divider()
 
 ####################################### 1. Premières analyses et stratégie de gestion des NaN ##################################
 st.header("1. Premières analyses et stratégie de gestion des NaN")
 # Countplot par station:
-st.markdown("""Il y a environ 3000 mesures par station:""")
+st.markdown("""Il y a environ :orange[3000 mesures] par station:""")
 
 fig1 = plt.figure(figsize=(20, 8))
 sns.countplot(x=df["Location"])
@@ -30,8 +31,8 @@ st.pyplot(fig1)
 
 st.markdown(
     """On observe des fluctuations concernant le nombre de mesures par station,
-            car elles n'ont pas toutes la même date de départ.
-            En revanche, toutes les mesures s'arrêtent en même temps:"""
+            car :red[elles n'ont pas toutes la même date de départ].
+            En revanche, toutes les mesures :blue[s'arrêtent en même temps]:"""
 )
 
 # Analyse des dates
@@ -60,8 +61,8 @@ if st.checkbox("Afficher le graphique strip plot:"):
     st.pyplot(fig2)
 
     st.markdown(
-        """On découvre ainsi que certaines stations ne mesurent pas du tout
-            certaines grandeurs, sans doute car elles n'ont pas le matériel adapté.
+        """On découvre ainsi que certaines stations :red[ne mesurent pas du tout
+            certaines grandeurs], sans doute car elles n'ont pas le matériel adapté.
             Voilà une première piste d'explication du taux important de NaN.
             On voudrait savoir quelles sont les grandeurs non mesurées
             par une station donnée.
@@ -84,7 +85,7 @@ st.write(
 
 st.markdown(
     """Par chance, les différentes modalités de grandeurs mesurées ne sont pas
-                trop importantes: elles sont au nombre de 9 "seulement".
+                trop importantes: :green[il n'y en a que neuf].
             """
 )
 
@@ -112,7 +113,7 @@ st.pyplot(fig3)
 
 # Regroupement des stations par grandeurs non mesurées:
 st.markdown(
-    """On peut regrouper les stations en fonction des modalités de grandeurs non mesurées:
+    """On peut :blue[regrouper les stations] en fonction des :orange[modalités de grandeurs non mesurées]:
             """
 )
 modes = list(
@@ -123,7 +124,7 @@ st.write(dict_reverse[gnm])
 
 # Conclusion:
 st.markdown(
-    """La mise en évidence de la structure du jeu de données et des valeurs manquantes nous invite à créer 9 datasets différents
+    """La mise en évidence de la structure du jeu de données et des valeurs manquantes nous invite à :blue[créer 9 datasets différents]
             (un par modalité de grandeurs non mesurées) pour avoir une gestion plus fine des NaN.
             Il suffira de supprimer les colonnes correspondant aux grandeurs non mesurées une fois les tableaux crées.
             """
@@ -131,7 +132,10 @@ st.markdown(
 
 # Élargissement et visualisation de la distribution spatio-temporelle des données pour des variables choisies (graphiques en « codes barre »)
 st.markdown(
-    "Il existe aussi une répartition des NaN plutôt aléatoire, correspondant sans doute à des interruptions momentanées des appareils de mesures. Nous les gérerons en remplacant ces valeurs par la valeur moyenne ou la modalité la plus fréquente calculée par station au sein de chaque tableau."
+     """Il existe aussi une :orange[répartition des NaN plutôt aléatoire], 
+     correspondant sans doute à des interruptions momentanées des appareils de mesures. 
+     Nous les gérerons en remplacant ces valeurs par la valeur moyenne 
+     ou la modalité la plus fréquente calculée par station au sein de chaque tableau."""
 )
 code_barre_var = ["Evaporation", "Sunshine", "Cloud9am", "Cloud3pm"]
 code_barre_var_choix = st.selectbox("Quelle variable visualiser ?", code_barre_var)
@@ -146,7 +150,7 @@ st.markdown(
 if st.checkbox("Afficher la description statistique"):
     st.dataframe(df.describe())
 st.markdown(
-    """A première vue, tout à l'air normal.
+    """A première vue, :green[tout à l'air normal] 	:heavy_check_mark:.
             """
 )
 
@@ -175,7 +179,7 @@ p_min = round(df_mes_min.shape[0] / df_mes.shape[0] * 100, 2)
 st.write(
     "Il y a ",
     df_mes_min.shape[0],
-    "valeurs extrêmes inférieures pour la mesure",
+    ":red[valeurs extrêmes inférieures] pour la mesure",
     str(mesure),
     "sur",
     df_mes.shape[0],
@@ -188,7 +192,7 @@ p_max = round(df_mes_max.shape[0] / df_mes.shape[0] * 100, 2)
 st.write(
     "Il y a ",
     df_mes_max.shape[0],
-    "valeurs extrêmes inférieures pour la mesure",
+    ":red[valeurs extrêmes supérieures] pour la mesure",
     str(mesure),
     "sur",
     df_mes.shape[0],
@@ -213,7 +217,7 @@ plt.yticks([])
 st.pyplot(fig4)
 
 st.markdown(
-    """ **Conclusion**: Tout est en ordre, il n'y a pas de mesure particulière à prendre concernant la distribution des variables numériques.
+    """ **Conclusion**: :green[Tout est en ordre], il n'y a pas de mesure particulière à prendre concernant la distribution des variables numériques.
 """
 )
 
