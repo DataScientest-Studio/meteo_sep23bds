@@ -3,6 +3,12 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+
+st.set_page_config(
+    page_title="Prévision météo en Australie", page_icon=":partly_sunny:"
+)
+
+
 sns.set_theme(style="whitegrid", palette="bright")
 
 import joblib
@@ -18,7 +24,7 @@ liste_stations = list(df["Location"].unique())
 tab_1, tab_2 = st.tabs(
     [
         ":microscope: **Analyse et gestion des NaN**",
-        ":bar_chart: **Distribution statistiques**"
+        ":bar_chart: **Distribution statistiques**",
     ]
 )
 
@@ -27,7 +33,7 @@ with tab_1:
     # = PAGE =
     st.title(":chart_with_upwards_trend: DataVizualisation")
 
-    ## == SECTION == 
+    ## == SECTION ==
     st.header(":microscope: Premières analyses et stratégie de gestion des NaN")
 
     ### === SOUS-SECTION ===
@@ -89,7 +95,6 @@ with tab_1:
     dict = joblib.load("dict_station_non_mes.joblib")
     dict_reverse = joblib.load("dict_reverse.joblib")
 
-
     station = st.selectbox("Quelle station choisir?", liste_stations)
     grandeurs_non_mesurees = dict[station]
     st.write(
@@ -134,30 +139,39 @@ with tab_1:
 
     st.markdown(
         """On peut :blue[regrouper les stations] en fonction des :orange[modalités de grandeurs non mesurées]:
-                """)
-    
-    modes = list(dict_reverse.keys())  # liste des 9 modalités de non mesures concaténées (ex: Evaporation_Sunshine)
+                """
+    )
+
+    modes = list(
+        dict_reverse.keys()
+    )  # liste des 9 modalités de non mesures concaténées (ex: Evaporation_Sunshine)
     gnm = st.selectbox("Quelle modalité choisir?", modes)
     st.write(dict_reverse[gnm])
 
     ### === SOUS-SECTION ===
     st.subheader("Conclusion")
 
-    st.markdown("""
+    st.markdown(
+        """
                 La mise en évidence de la structure du jeu de données et des valeurs manquantes nous invite à :blue[créer 9 datasets différents]
                 (un par modalité de grandeurs non mesurées) pour avoir une gestion plus fine des NaN.
                 Il suffira de supprimer les colonnes correspondant aux grandeurs non mesurées une fois les tableaux crées.
-                """)
-    
+                """
+    )
+
     ### === SOUS-SECTION ===
-    st.subheader("""Élargissement et visualisation de la distribution spatio-temporelle des données pour des variables choisies (graphiques en « codes barre »)""")
-                 
-    st.markdown("""
-        Il existe aussi une :orange[répartition des NaN plutôt aléatoire], 
-        correspondant sans doute à des interruptions momentanées des appareils de mesures. 
-        Nous les gérerons en remplacant ces valeurs par la valeur moyenne 
+    st.subheader(
+        """Élargissement et visualisation de la distribution spatio-temporelle des données pour des variables choisies (graphiques en « codes barre »)"""
+    )
+
+    st.markdown(
+        """
+        Il existe aussi une :orange[répartition des NaN plutôt aléatoire],
+        correspondant sans doute à des interruptions momentanées des appareils de mesures.
+        Nous les gérerons en remplacant ces valeurs par la valeur moyenne
         ou la modalité la plus fréquente calculée par station au sein de chaque tableau.
-        """)
+        """
+    )
 
     code_barre_var = ["Evaporation", "Sunshine", "Cloud9am", "Cloud3pm"]
     code_barre_var_choix = st.selectbox("Quelle variable visualiser ?", code_barre_var)
@@ -175,20 +189,23 @@ with tab_2:
 
     st.markdown(
         """Nous cherchons à déterminer s'il y a des valeurs extrêmes aberrantes.
-        """)
-    
+        """
+    )
+
     if st.checkbox("Afficher la description statistique"):
         st.dataframe(df.describe())
 
     st.markdown(
         """A première vue, :green[tout à l'air normal] 	:heavy_check_mark:.
-        """)
+        """
+    )
 
     ### === SOUS-SECTION ===
     st.subheader("Variables numériques")
     st.markdown(
         """Vérifions -le en regardant de plus prêt la distribution des variables numériques.
-        """)
+        """
+    )
 
     mesure = st.selectbox("Quelle grandeur numérique étudier?", var_num)
 
@@ -246,9 +263,11 @@ with tab_2:
 
     st.pyplot(fig4)
 
-    st.markdown(""" 
+    st.markdown(
+        """
                 **Conclusion**: :green[Tout est en ordre], il n'y a pas de mesure particulière à prendre concernant la distribution des variables numériques.
-                """)
+                """
+    )
 
     st.write("\n")
 
@@ -256,7 +275,9 @@ with tab_2:
     st.markdown(
         "Les variables sous étude étant des **paramètres météorologiques**, nous pourrions supposer qu’elles soient également **fonction du lieu** d’enregistrement des données ; une décomposition sur cet axe pourrait donc se révéler instructive."
     )
-    st.markdown("Voici quelques illustrations pour les variables numériques liées au vent.")
+    st.markdown(
+        "Voici quelques illustrations pour les variables numériques liées au vent."
+    )
     box_plot_var = ["WindGustSpeed", "WindSpeed9am", "WindSpeed3pm"]
     box_plot_var_choix = st.selectbox("Quelle variable visualiser ?", box_plot_var)
     st.image("../../reports/figures/box_plot_{}.png".format(box_plot_var_choix))
