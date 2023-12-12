@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+import plotly.express as px
 
 
 st.set_page_config(
@@ -300,7 +301,25 @@ with tab_2:
     )
 
     liste_stations_choix = st.selectbox("Quelle station visualiser ?", liste_stations)
-    st.image("../../reports/figures/rose_vents_{}.png".format(liste_stations_choix))
+    col_1, col_2 = st.columns(2)
+    with col_1:
+        st.image(
+            "../../reports/figures/rose_vents_{}.png".format(liste_stations_choix),
+            use_column_width=True,
+        )
+    with col_2:
+        gps = pd.read_excel("../../data/external/station_gps_region.xlsx")
+        fig = px.scatter_mapbox(
+            data_frame=gps[gps["Location"] == liste_stations_choix],
+            lat="Latitude",
+            lon="Longitude",
+            hover_name="Location",
+            zoom=1.5,
+            center={"lat": -23.116667, "lon": 132.133333},
+            mapbox_style="carto-positron",
+            height=360,
+        )
+        st.plotly_chart(fig, use_container_width=True)
 
     st.markdown(
         "Enfin, nous concluons avec les visualisations de la pseudo-variable cible, `RainToday`, et de la variable cible, `RainTomorrow`, dont la valeur est celle de `RainToday` le jour précédent."

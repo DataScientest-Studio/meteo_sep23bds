@@ -1,6 +1,7 @@
 import streamlit as st
 import io  # pour afficher la sortie de df.info()
 import pandas as pd
+import plotly.express as px
 
 
 st.set_page_config(
@@ -38,8 +39,34 @@ st.divider()
 st.markdown(
     """Notre tableau contient des données provenant de :orange[49 stations différentes]:"""
 )
-image = "../../data/external/carte_stations.jpg"
-st.image(image, caption="Carte des stations")
+st.write("\n")
+gps = pd.read_excel("../../data/external/station_gps_region.xlsx")
+gps.rename({"CodeRegion": "Region"}, axis=1, inplace=True)
+gps["Region"].replace(
+    to_replace={
+        "NSW": "New South Wales",
+        "ACT": "Australian Capital Territory",
+        "VIC": "Victoria",
+        "QLD": "Queensland",
+        "SA": "South Australia",
+        "WA": "Western Australia",
+        "TAS": "Tasmania",
+        "NT": "Northern Territory",
+    },
+    inplace=True,
+)
+fig = px.scatter_mapbox(
+    data_frame=gps,
+    lat="Latitude",
+    lon="Longitude",
+    color="Region",
+    hover_name="Location",
+    color_discrete_sequence=px.colors.qualitative.Vivid,
+    zoom=2.5,
+    mapbox_style="carto-positron",
+)
+fig.update_layout(margin={"r": 0, "t": 0, "l": 0, "b": 0})
+st.plotly_chart(fig)
 
 
 # Présentation du tableau:
