@@ -216,7 +216,7 @@ with tab_2:
         """
     )
 
-    mesure = st.selectbox("Quelle grandeur numérique étudier?", var_num)
+    mesure = st.selectbox("Quelle grandeur numérique étudier?", var_num, index=5)
 
     df_mes = df[mesure]
     df_mes.dropna(inplace=True)
