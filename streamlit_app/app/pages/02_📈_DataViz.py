@@ -300,6 +300,7 @@ with tab_2:
         "Les illustrations ci-dessous présentent **les plus fortes rafales de vent (`WindGustDir`) à chaque station météorologique** sous forme de rose des vents."
     )
 
+    liste_stations.sort()
     liste_stations_choix = st.selectbox("Quelle station visualiser ?", liste_stations)
     col_1, col_2 = st.columns(2)
     with col_1:
