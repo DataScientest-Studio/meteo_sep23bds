@@ -10,7 +10,7 @@ st.set_page_config(
 with st.sidebar:
     st.header(":partly_sunny: Prévision météo en Australie")
     st.markdown(
-        "Un projet de _data science_ réalisé par [Alexandre WINGER](https://github.com/alexandrewinger) et [Omar CHOA](https://www.linkedin.com/in/omarchoa/)."
+        "Un projet de _data science_ réalisé par [Omar CHOA](https://www.linkedin.com/in/omarchoa/) et [Alexandre WINGER](https://github.com/alexandrewinger)."
     )
 
 
@@ -36,12 +36,12 @@ st.markdown(
 ## == SECTION ==
 st.header(":technologist::technologist: Auteurs")
 
-st.markdown("Nous sommes Alex et Omar, les **Weather Boys** !")
+st.markdown("Nous sommes Omar et Alex, les **Weather Boys** !")
 
 st.markdown(
     "Tous deux issus d'un parcours scientifique et attirés par le monde de la _data_, nous avons décidé de sauter le pas en nous inscrivant chez DataScientest."
 )
 
 st.markdown("Cliquez sur les liens suivants pour en savoir plus sur nous !")
-st.markdown("- [Alexandre WINGER](https://github.com/alexandrewinger)")
 st.markdown("- [Omar CHOA](https://www.linkedin.com/in/omarchoa/)")
+st.markdown("- [Alexandre WINGER](https://github.com/alexandrewinger)")

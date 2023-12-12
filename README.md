@@ -36,7 +36,7 @@ L'application devrait alors être disponible à l'adresse suivante : [localhost:
 
 
 ## 👨‍💻👨‍💻 Auteurs
-Nous sommes Alex et Omar, les **Weather Boys** !
+Nous sommes Omar et Alex, les **Weather Boys** !
 
 Tous deux issus d'un parcours scientifique et attirés par le monde de la _data_, nous avons décidé de sauter le pas en nous inscrivant chez DataScientest.
 
