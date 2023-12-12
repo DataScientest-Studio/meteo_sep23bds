@@ -15,8 +15,9 @@ Vous pouvez explorer et exécuter les notebooks [ici](./notebooks).
 Vous aurez besoin d'installer les dépendances suivantes dans un environnement dédié :
 
 ```shell
-pip install -r requirements_alex.txt
-pip install -r requirements_omar.txt
+conda create --name <env_name> python=3.9 # Remplacer <env_name> avec le nom de votre environnement virtuel éphémère
+pip install -r requirements_alex.txt # Sur Windows
+pip install -r requirements_omar.txt # Sur macOS
 ```
 
 
