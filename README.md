@@ -43,4 +43,4 @@ Tous deux issus d'un parcours scientifique et attirés par le monde de la _data_
 
 Cliquez sur les liens suivants pour en savoir plus sur nous !
 - Omar CHOA ([GitHub](https://github.com/omarchoa) / [LinkedIn](https://www.linkedin.com/in/omarchoa/))
-- Alexandre WINGER ([GitHub](https://github.com/alexandrewinger))
+- Alexandre WINGER ([GitHub](https://github.com/alexandrewinger) / [LinkedIn](https://www.linkedin.com/in/alexandre-winger/))
